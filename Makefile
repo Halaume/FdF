@@ -6,7 +6,7 @@
 #    By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 14:08:14 by ghanquer          #+#    #+#              #
-#    Updated: 2022/02/21 14:09:01 by ghanquer         ###   ########.fr        #
+#    Updated: 2022/02/21 15:16:53 by ghanquer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ RM = rm -fr
 
 CFLAGS = -Wall -Wextra -Werror
 
+MLX = minilibx-linux/libmlx_Linux.a
+
 .c.o:
 	$(CC) -c $< -o $(<:.c=.o)
 
@@ -44,9 +46,12 @@ $(OBJ_DIRS): inc/fdf.h
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) -c $< -o $@
 
-$(NAME): $(OBJ_DIRS) $(SRC)
+$(NAME): $(OBJ_DIRS) $(SRC) $(MLX)
 	$(MAKE) -j $(OBJ)
-	$(CC) $(OBJ) -o $@
+	$(CC) $(OBJ) $(MLX) -lXext -lX11 -lm -Iminilibx -o $@
+
+$(MLX):
+	$(MAKE) -C ./minilibx-linux
 
 clean:
 	$(RM) $(OBJ_DIR)
