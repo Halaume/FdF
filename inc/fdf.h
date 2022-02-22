@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/22 15:06:28 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:42:44 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,18 @@ typedef struct s_map_list {
 	struct s_map_list	*next;
 }	t_map_list;
 
+typedef struct s_point {
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+}	t_point;
+
 typedef struct s_info {
 	void		*mlx;
 	void		*window;
 	int			color;
+	t_point		**tab_point;
 	t_data		img;
 	t_map_list	*map;
 }	t_info;
@@ -62,6 +70,8 @@ char		*get_next_line(int fd);
 //				String Manip
 
 char		**ft_split(char *s, char c);
+char		*ft_strdup(char *s);
+int			ft_atoi(char *str);
 
 //				Chain List utils
 

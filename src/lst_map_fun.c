@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:29:36 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/22 15:06:14 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/22 16:06:51 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	map_add_back(t_map_list **alst, t_map_list *new)
 
 	if (alst && new)
 	{
+		tmp = *alst;
 		if (*alst == NULL)
 			*alst = new;
 		else
 		{
-			tmp = *alst;
 			while (tmp->next)
 				tmp = tmp->next;
 			tmp->next = new;
@@ -44,6 +44,7 @@ void	map_add_back(t_map_list **alst, t_map_list *new)
 
 void	info_init(t_info *info)
 {
+	info->tab_point = NULL;
 	info->color = 0x00FF0000;
 	info->mlx = NULL;
 	info->window = NULL;
