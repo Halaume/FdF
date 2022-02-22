@@ -6,11 +6,11 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 11:51:00 by ghanquer          #+#    #+#             */
-/*   Updated: 2021/12/14 12:52:05 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:57:16 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../inc/fdf.h"
 
 char	*ft_join(char *line, char *buffer)
 {

@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:27:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/21 16:42:21 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:29:08 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,26 @@ static void	ft_get_next_str(char **next_str, unsigned int *next_len, char c)
 		(*next_len)++;
 		i++;
 	}
+}
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+{
+	unsigned long	i;
+
+	i = 0;
+	if (n != 0)
+	{
+		while (src[i] && i < n - 1)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+		i = 0;
+	}
+	while (src[i])
+		i++;
+	return (i);
 }
 
 char	**ft_split(char *s, char c)

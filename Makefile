@@ -6,7 +6,7 @@
 #    By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 14:08:14 by ghanquer          #+#    #+#              #
-#    Updated: 2022/02/21 15:16:53 by ghanquer         ###   ########.fr        #
+#    Updated: 2022/02/22 14:58:22 by ghanquer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,12 @@ MLX = minilibx-linux/libmlx_Linux.a
 #HOW TO LIST .c 
 #	ls -l | awk '{print $9}' | grep -E ".c$"| sed "s/\.c/ \\\/g" | sed '$s/\\$//g'
 
-SRC_FT = 	main
+SRC_FT = 	main \
+			free_fun \
+			lst_map_fun \
+			get_next_line \
+			ft_split \
+			get_next_line_utils
 
 all: $(NAME)
 
@@ -56,10 +61,16 @@ $(MLX):
 clean:
 	$(RM) $(OBJ_DIR)
 
-fclean: clean
+debugclean:
+	$(RM) debug
+
+fclean: clean debugclean
 	$(RM) $(NAME)
 
 re: fclean all
+
+debug:
+	$(CC) -g3 -fsanitize=address $(OBJ) $(MLX) -lXext -lX11 -lm -Iminilibx -o $@
 
 define print_aligned_coffee
     @t=$(NAME); \
@@ -90,4 +101,4 @@ coffee: all clean
 	$(call print_aligned_coffee)
 
 .SECONDARY: $(OBJ) $(OBJ_DIR)
-.PHONY: all clean fclean re coffee
+.PHONY: all clean fclean re coffee debug debugclean

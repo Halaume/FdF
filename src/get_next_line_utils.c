@@ -6,11 +6,11 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:35:15 by ghanquer          #+#    #+#             */
-/*   Updated: 2021/12/14 12:52:06 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:57:05 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../inc/fdf.h"
 
 int	ft_strlen(char *str)
 {

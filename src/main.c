@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:06:13 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/21 17:41:55 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:06:49 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,37 @@ int	closewin(t_info *info)
 	return (1);
 }
 
+void	fill_map(t_map_list *map, int fd)
+{
+	t_map_list	*lst_tmp;
+	char		*tmp;
+
+	tmp = "init";
+	lst_tmp = map;
+	while (tmp != NULL)
+	{
+		map_add_back(&map, lst_map_new(get_next_line(fd)));
+		lst_tmp = lst_tmp->next;
+		tmp = lst_tmp->line;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_info	info;
-	int	color;
+	int		fd_open;
 
 	(void)argc;
-	(void)argv;
-	color = 0x00FF0000;
+
+	fd_open = open(argv[2], O_RDONLY);
+	if (!fd_open)
+		return (-1);
+	fill_map(info.map, fd_open);
 	info.mlx = mlx_init();
 	info.window = mlx_new_window(info.mlx, 1920, 1080, "Fil De Fer");
 	info.img.img = mlx_new_image(info.mlx, 1920, 1080);
 	info.img.addr = mlx_get_data_addr(info.img.img, &info.img.bits_per_pixel, &info.img.line_length, &info.img.endian);
-	my_mlx_pixel_put(&info.img, 5, 5, color);
+	my_mlx_pixel_put(&info.img, 5, 5, info.color);
 	mlx_put_image_to_window(info.mlx, info.window, info.img.img, 0, 0);
 	mlx_hook(info.window, 17, 0, closewin, &info);
 	mlx_loop(info.mlx);
