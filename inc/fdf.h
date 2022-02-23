@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/22 16:42:44 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:50:36 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ int			ft_atoi(char *str);
 
 void		map_add_back(t_map_list **alst, t_map_list *new);
 t_map_list	*lst_map_new(char *line);
+void		alloctab_point(t_info *info);
+int	size_of_line(char **line);
 
 #endif

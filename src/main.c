@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:06:13 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/22 18:20:13 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:52:35 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	print_point(t_info info)
 
 	j = 0;
 	tmp_map = info.map;
+	alloctab_point(&info);
 	while (tmp_map)
 	{
 		i = 0;
@@ -90,9 +91,12 @@ void	print_point(t_info info)
 		splitmap = ft_split(tmp_map->line, ' ');
 		while (splitmap[i])
 		{
-			info.tab_point[j]->x = i;
-			info.tab_point[j]->y = j;
-			info.tab_point[j]->z = ft_atoi(splitmap[i]);
+			info.tab_point[j][i].x = i;
+			printf("-----START-----\nx : %d\n", info.tab_point[j]->x);
+			info.tab_point[j][i].y = j;
+			printf("y : %d\n", info.tab_point[j]->y);
+			info.tab_point[j][i].z = ft_atoi(splitmap[i]);
+			printf("z : %d\n", info.tab_point[j]->z);
 			i++;
 		}
 		j++;
