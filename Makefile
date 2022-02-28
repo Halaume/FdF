@@ -6,7 +6,7 @@
 #    By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 14:08:14 by ghanquer          #+#    #+#              #
-#    Updated: 2022/02/22 15:52:35 by ghanquer         ###   ########.fr        #
+#    Updated: 2022/02/28 18:34:55 by ghanquer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC_FT = 	main \
 			get_next_line \
 			ft_split \
 			fdf_utils \
+			fdf_basic \
 			get_next_line_utils
 
 all: $(NAME)
@@ -60,7 +61,7 @@ $(MLX):
 	$(MAKE) -C ./minilibx-linux
 
 clean:
-	$(RM) $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR)
 
 debugclean:
 	$(RM) debug

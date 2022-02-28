@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:50:39 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/23 11:52:20 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/28 11:49:32 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	res = 0;
 	while (str[i] == '0' || (str[i] < 14 && str[i] > 8) || str [i] == ' ')
-	{
 		i++;
-	}
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -88,13 +86,18 @@ int	size_of_col(t_info *info)
 
 void	alloctab_point(t_info *info)
 {
-	int		nbline;
-	int		nbcol;
 	char	**tmp;
+	int		i;
 
+	i = 0;
 	tmp = ft_split(info->map->line, ' ');
-	nbline = size_of_line(tmp);
-	nbcol = size_of_col(info);
-	info->tab_point = malloc(sizeof(t_point *) * nbcol);
-	*info->tab_point = malloc(sizeof(t_point) * nbline);
+	info->nbline = size_of_line(tmp);
+	info->nbcol = size_of_col(info);
+	info->tab_point = malloc(sizeof(t_point *) * info->nbcol);
+	while (i < info->nbcol)
+	{
+		info->tab_point[i] = malloc(sizeof(t_point) * info->nbline);
+		i++;
+	}
+	info->tab_point[i] = malloc(sizeof(t_point) * info->nbline);
 }

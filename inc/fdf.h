@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/23 11:50:36 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:49:56 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "../minilibx-linux/mlx.h"
 
 # define BUFFER_SIZE 1
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef struct	s_data {
 	void	*img;
@@ -43,17 +45,21 @@ typedef struct s_point {
 }	t_point;
 
 typedef struct s_info {
-	void		*mlx;
-	void		*window;
-	int			color;
-	t_point		**tab_point;
-	t_data		img;
-	t_map_list	*map;
+	void				*mlx;
+	void				*window;
+	int					color;
+	int					nbcol;
+	int					nbline;
+	unsigned long long	nb_point;
+	float				zoom;
+	t_point				**tab_point;
+	t_data				img;
+	t_map_list			*map;
 }	t_info;
 
 //				INIT
 
-void		info_init(t_info *info);
+void		init_info(t_info *info);
 
 //				GNL
 
@@ -78,6 +84,7 @@ int			ft_atoi(char *str);
 void		map_add_back(t_map_list **alst, t_map_list *new);
 t_map_list	*lst_map_new(char *line);
 void		alloctab_point(t_info *info);
-int	size_of_line(char **line);
+int			size_of_line(char **line);
+int			size_of_col(t_info *info);
 
 #endif
