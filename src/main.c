@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:06:13 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/01 13:04:08 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:54:31 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,30 @@ t_point	dist(t_point mid, t_point point)
 	t_point	final_point;
 
 	dist = sqrt((pow((mid.x - point.x), 2)) + (pow((mid.y - point.y), 2)) + (pow((mid.z - point.z), 2)));
-	final_point.x = point.x + dist;
-	final_point.y = point.y + dist;
+	if (point.x >= 0)
+		final_point.x = point.x - dist;
+	if (point.x <= 0)
+		final_point.x = point.x + dist;
+	if (point.y <= 0)
+		final_point.y = point.y + dist;
+	if (point.y >= 0)
+		final_point.y = point.y - dist;
 	final_point.z = point.z;
 	return (final_point);
 }
 
 void	print_point(t_info *info)
 {
-	int	x;
-	int	y;
-	int	line;
+	int		x;
+	int		y;
+	int		line;
+	t_point	point;
 
 	x = 0;
-	while (x < info->nbcol)
+	while (x < info->nbline)
 	{
 		y = 0;
-		while (y < info->nbline)
+		while (y < info->nbcol)
 		{
 			line = 0;
 			if (info->tab_point[x][y].z > 0)
@@ -44,6 +51,27 @@ void	print_point(t_info *info)
 			else
 				info->color = 0x00FFFFFF;
 			if (x != info->nbcol - 1)
+			{
+//				while (line <= info->spacing)
+//				{
+//					point = rota(info, info->tab_point[x][y]);
+//					my_mlx_pixel_put(&info->img, point.x + WIDTH / 2 * info->zoom, point.y + HEIGHT / 2 + line * info->zoom, info->color);
+//					line++;
+//				}
+			}
+			if (y != info->nbline - 1)
+			{
+				line = 0;
+//				while (line <= info->spacing)
+//				{
+//					point = rota(info, info->tab_point[x][y]);
+//					my_mlx_pixel_put(&info->img, point.x + WIDTH / 2 + line * info->zoom, point.y + HEIGHT / 2 * info->zoom, info->color);
+//					line++;
+//				}
+			}
+			point = rota(info, info->tab_point[x][y]);
+			my_mlx_pixel_put(&info->img, point.x + WIDTH / 2 * info->zoom, point.y + HEIGHT / 2 * info->zoom, info->color);
+/*			if (x != info->nbcol - 1)
 			{
 				while (line <= info->spacing)
 				{
@@ -61,7 +89,7 @@ void	print_point(t_info *info)
 				}
 			}
 			my_mlx_pixel_put(&info->img, info->tab_point[x][y].x * info->spacing + WIDTH / 2 * info->zoom, info->tab_point[x][y].y * info->spacing + HEIGHT / 2 * info->zoom, info->color);
-			y++;
+*/			y++;
 		}
 		x++;
 	}
@@ -115,16 +143,20 @@ void	get_tab_point(t_info *info)
 			info->tab_point[j][i].x = i - info->nbline / 2;
 			info->tab_point[j][i].y = j - info->nbcol / 2;
 			info->tab_point[j][i].z = ft_atoi(nocolorcode);
-			printf(" %.2d ", info->tab_point[j][i].z);
+//			printf(" %.2d ", info->tab_point[j][i].z);
 //			printf("x = %d y = %d\n", info->tab_point[j][i].x, info->tab_point[j][i].y);
 			free(nocolorcode);
 			i++;
 		}
-		printf("\n");
+//		printf("\n");
 		j++;
 		tmp_map = tmp_map->next;
 		free(splitmap);
 	}
+	info->nbline = j;
+	info->nbcol = i;
+//	printf("line = %d col = %d\n", info->nbline, info->nbcol);
+	get_mid(info);
 }
 
 int	main(int argc, char **argv)

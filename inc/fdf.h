@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/01 11:00:42 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:32:26 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ typedef struct s_info {
 	int					nbcol;
 	int					nbline;
 	unsigned long long	nb_point;
+	double				angle_x;
+	double				angle_y;
+	double				angle_z;
 	double				spacing;
 	double				zoom;
 	t_point				**tab_point;
@@ -62,6 +65,10 @@ typedef struct s_info {
 //				INIT
 
 void		init_info(t_info *info);
+void		get_mid(t_info *info);
+int			size_of_line(char **line);
+int			size_of_col(t_info *info);
+void		get_spacing(t_info *info);
 
 //				MLX
 
@@ -96,9 +103,10 @@ int			ft_atoi(char *str);
 void		map_add_back(t_map_list **alst, t_map_list *new);
 t_map_list	*lst_map_new(char *line);
 void		alloctab_point(t_info *info);
-int			size_of_line(char **line);
-int			size_of_col(t_info *info);
-void		get_spacing(t_info *info);
+
+//				ROTA
+
+t_point		rota(t_info *info, t_point point);
 
 //				ERROR
 
