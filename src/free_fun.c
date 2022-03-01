@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:54:54 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/23 11:31:42 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/01 12:01:37 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,10 @@ void	free_tab_point(t_info *info)
 		}
 		free(info->tab_point);
 	}
+}
+
+void	free_fun(t_info *info)
+{
+	(void)info;
+	exit (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/28 18:49:56 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:00:42 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ typedef struct s_info {
 	int					nbcol;
 	int					nbline;
 	unsigned long long	nb_point;
-	float				zoom;
+	double				spacing;
+	double				zoom;
 	t_point				**tab_point;
+	t_point				mid;
 	t_data				img;
 	t_map_list			*map;
 }	t_info;
@@ -60,6 +62,16 @@ typedef struct s_info {
 //				INIT
 
 void		init_info(t_info *info);
+
+//				MLX
+
+void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int			closewin(t_info *info);
+
+//				MAP
+
+void		fill_map(t_map_list **map, char **argv);
+int			map_size(t_info info);
 
 //				GNL
 
@@ -86,5 +98,10 @@ t_map_list	*lst_map_new(char *line);
 void		alloctab_point(t_info *info);
 int			size_of_line(char **line);
 int			size_of_col(t_info *info);
+void		get_spacing(t_info *info);
+
+//				ERROR
+
+void		free_fun(t_info *info);
 
 #endif
