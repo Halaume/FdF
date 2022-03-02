@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:16:54 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/01 15:28:16 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:00:20 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_info(t_info *info)
 	info->map = NULL;
 	info->spacing = 0;
 	info->color = 0x00FFFFFF;
+	info->epaisseur = 1;
 	info->angle_y = 0;
 	info->angle_z = M_PI / 4;
 	info->angle_x = M_PI / 2 - atan(M_PI / 6);

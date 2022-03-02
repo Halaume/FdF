@@ -6,7 +6,7 @@
 #    By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 14:08:14 by ghanquer          #+#    #+#              #
-#    Updated: 2022/03/01 11:00:55 by ghanquer         ###   ########.fr        #
+#    Updated: 2022/03/02 18:36:39 by ghanquer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ SRC_FT = 	main \
 			fdf_utils \
 			fdf_basic \
 			fdf \
+			bresenham \
+			hook \
 			get_next_line_utils
 
 all: $(NAME)

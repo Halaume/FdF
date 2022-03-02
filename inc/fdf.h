@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/01 15:32:26 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/02 18:36:21 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_info {
 	int					color;
 	int					nbcol;
 	int					nbline;
+	int					epaisseur;
 	unsigned long long	nb_point;
 	double				angle_x;
 	double				angle_y;
@@ -74,6 +75,7 @@ void		get_spacing(t_info *info);
 
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int			closewin(t_info *info);
+int			hook(int keycode, t_info *info);
 
 //				MAP
 
@@ -104,9 +106,11 @@ void		map_add_back(t_map_list **alst, t_map_list *new);
 t_map_list	*lst_map_new(char *line);
 void		alloctab_point(t_info *info);
 
-//				ROTA
+//				ISOMETRIE
 
 t_point		rota(t_info *info, t_point point);
+void		bresenham(t_info *info, t_point point1, t_point point2);
+void		bricenham(t_info *info, t_point point1, t_point point2);
 
 //				ERROR
 
