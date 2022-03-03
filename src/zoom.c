@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 12:02:46 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 12:22:45 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:17:40 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,14 @@ void	high(t_info *info)
 void	low(t_info *info)
 {
 	info->epaisseur++;
+	retrace_map(info);
+}
+
+void	color(t_info *info)
+{
+	if (info->colorbool == 0)
+		info->colorbool = 1;
+	else
+		info->colorbool = 0;
 	retrace_map(info);
 }

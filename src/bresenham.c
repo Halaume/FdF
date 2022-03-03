@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 10:56:11 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 12:28:02 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:26:14 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ void	bricenham(t_info *info, t_point point1, t_point point2)
 	int	diff;
 
 	(void)info;
+	if (info->colorbool == 1 && (point1.z > info->mid.z || point2.z > info->mid.z))
+		info->color = 0x00FF0F0F;
+	else if (info->colorbool == 1 && (point1.z < info->mid.z || point2.z < info->mid.z))
+		info->color = 0x00FF0FF0;
+	else if (info->colorbool == 1)
+		info->color = 0x00FFFFFF;
 	if (abs(point2.x - point1.x) > abs(point2.y - point1.y))
 	{
 		diff = point2.x - point1.x;

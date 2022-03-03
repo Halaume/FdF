@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 18:33:26 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 13:06:34 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:09:19 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ int	hook(int keycode, t_info *info)
 		low(info);
 	if (keycode == 112)
 		projection(info);
+	if (keycode == 99)
+		color(info);
 	return (0);
 }

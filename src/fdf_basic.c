@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:16:54 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 13:05:53 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:32:36 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_info(t_info *info)
 	info->angle_x = M_PI / 2 - atan(M_PI / 6);
 	info->xval = 0;
 	info->yval = 0;
+	info->colorbool = 0;
 	info->projection = 0;
 }
 
@@ -75,6 +76,7 @@ int	closewin(t_info *info)
 	mlx_destroy_window(info->mlx, info->window);
 	mlx_destroy_display(info->mlx);
 	free(info->mlx);
+	free_fun(info);
 	exit (0);
 	return (1);
 }

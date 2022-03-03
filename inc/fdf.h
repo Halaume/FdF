@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 13:05:40 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 16:31:56 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,14 @@ typedef struct s_point {
 typedef struct s_info {
 	void				*mlx;
 	void				*window;
-	int					color;
 	int					nbcol;
 	int					nbline;
 	int					yval;
 	int					xval;
 	int					epaisseur;
 	int					projection;
+	int					color;
+	int					colorbool;
 	unsigned long long	nb_point;
 	double				angle_x;
 	double				angle_y;
@@ -118,9 +119,11 @@ t_point		rota(t_info *info, t_point point);
 void		bresenham(t_info *info, t_point point1, t_point point2);
 void		bricenham(t_info *info, t_point point1, t_point point2);
 
-//				ERROR
+//				ERROR / free
 
 void		free_fun(t_info *info);
+void		free_list(t_info *info);
+void		free_map(char **splitmap);
 
 //				HOOK FUN
 
@@ -138,5 +141,6 @@ void		rota_up(t_info *info);
 void		rota_left(t_info *info);
 void		rota_down(t_info *info);
 void		rota_right(t_info *info);
+void		color(t_info *info);
 
 #endif

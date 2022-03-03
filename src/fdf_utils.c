@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:50:39 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/02/28 11:49:32 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:57:15 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,5 @@ void	alloctab_point(t_info *info)
 		info->tab_point[i] = malloc(sizeof(t_point) * info->nbline);
 		i++;
 	}
-	info->tab_point[i] = malloc(sizeof(t_point) * info->nbline);
+	free_map(tmp);
 }
