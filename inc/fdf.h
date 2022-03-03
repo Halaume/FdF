@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/02 18:36:21 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 13:05:40 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ typedef struct s_info {
 	int					color;
 	int					nbcol;
 	int					nbline;
+	int					yval;
+	int					xval;
 	int					epaisseur;
+	int					projection;
 	unsigned long long	nb_point;
 	double				angle_x;
 	double				angle_y;
@@ -58,6 +61,7 @@ typedef struct s_info {
 	double				spacing;
 	double				zoom;
 	t_point				**tab_point;
+	t_point				**save;
 	t_point				mid;
 	t_data				img;
 	t_map_list			*map;
@@ -76,11 +80,13 @@ void		get_spacing(t_info *info);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int			closewin(t_info *info);
 int			hook(int keycode, t_info *info);
+void		print_point(t_info *info);
 
 //				MAP
 
 void		fill_map(t_map_list **map, char **argv);
 int			map_size(t_info info);
+void		retrace_map(t_info *info);
 
 //				GNL
 
@@ -115,5 +121,22 @@ void		bricenham(t_info *info, t_point point1, t_point point2);
 //				ERROR
 
 void		free_fun(t_info *info);
+
+//				HOOK FUN
+
+void		reset(t_info *info);
+void		gauche(t_info *info);
+void		droite(t_info *info);
+void		haut(t_info *info);
+void		bas(t_info *info);
+void		zoom_in(t_info *info);
+void		zoom_out(t_info *info);
+void		high(t_info *info);
+void		low(t_info *info);
+void		projection(t_info *info);
+void		rota_up(t_info *info);
+void		rota_left(t_info *info);
+void		rota_down(t_info *info);
+void		rota_right(t_info *info);
 
 #endif

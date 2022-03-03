@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:59:19 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/02 16:45:38 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 12:20:37 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,12 @@ int	map_size(t_info info)
 t_point	rota(t_info *info, t_point point)
 {
 	t_point	res;
-//	double	c;
-//	double	A;
-//	double	B;
-//	double	C;
 
-//	c = sqrt(2) * tan(info->angle_z);
-//	A = info->zoom / sqrt(2);
-//	B = info->zoom * sin(info->angle_z) / sqrt(2);
-//	C = info->zoom * cos(info->angle_z);
 	res.x = (info->spacing * (cos(info->angle_z) * point.x - sin(info->angle_z) * point.y));
 	res.y = (info->spacing * (sin(info->angle_z) * point.x + cos(info->angle_z) * point.y));
 	res.y = (res.y * cos(info->angle_x)) - ((point.z * info->spacing / info->epaisseur) * sin(info->angle_x));
 	res.z = point.z;
+	res.y += info->yval;
+	res.x += info->xval;
 	return (res);
 }

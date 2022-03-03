@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:06:13 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/02 18:33:16 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 11:25:17 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ void	print_point(t_info *info)
 		while (y < info->nbcol)
 		{
 			line = 0;
-			if (info->tab_point[x][y].z > info->mid.z)
-				info->color = 0x00FF0F0F;
-			else if (info->tab_point[x][y].z < info->mid.z)
-				info->color = 0x00FF0FF0;
-			else
-				info->color = 0x00FFFFFF;
+//			if (info->tab_point[x][y].z > info->mid.z)
+//				info->color = 0x00FF0F0F;
+//			else if (info->tab_point[x][y].z < info->mid.z)
+//				info->color = 0x00FF0FF0;
+//			else
+//				info->color = 0x00FFFFFF;
 			point = rota(info, info->tab_point[x][y]);
 			my_mlx_pixel_put(&info->img, point.x + WIDTH / 2 * info->zoom, point.y + HEIGHT / 2 * info->zoom, info->color);
 			if (x + 1 < info->nbline)
@@ -117,6 +117,7 @@ void	get_tab_point(t_info *info)
 		tmp_map = tmp_map->next;
 		free(splitmap);
 	}
+	info->save = info->tab_point;
 	info->nbline = j;
 	info->nbcol = i;
 	get_mid(info);
