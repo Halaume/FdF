@@ -6,11 +6,15 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 10:56:11 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 16:26:14 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:07:25 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
+
+//void	bricenham2(t_info *info, t_point point1, t_point point2)
+//{
+//}
 
 void	bricenham(t_info *info, t_point point1, t_point point2)
 {
@@ -41,6 +45,7 @@ void	bricenham(t_info *info, t_point point1, t_point point2)
 	}
 	else
 	{
+//		bricenham2(info, point1, point2);
 		diff = point2.y - point1.y;
 		while (diff)
 		{

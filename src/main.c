@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:06:13 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 15:43:47 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:03:29 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*get_no_color(char	*splitted)
 	char	*ret;
 
 	if (!splitted)
-		return (NULL);
+		return(NULL);
 	i = 0;
 	while (splitted[i] && splitted[i] != ' ' && splitted[i] != ',' && splitted[i] != '\0' && splitted[i] != '\n')
 		i++;
@@ -134,9 +134,9 @@ int	main(int argc, char **argv)
 		return (-1);
 	init_info(&info);
 	fill_map(&info.map, argv);
-	info.tab_point = malloc(sizeof(t_point *) * map_size(info));
-	if (!info.tab_point)
-		return (-1);
+//	info.tab_point = malloc(sizeof(t_point *) * map_size(info));
+//	if (!info.tab_point)
+//		return (-1);
 	info.mlx = mlx_init();
 	info.window = mlx_new_window(info.mlx, 1920, 1080, "Fil De Fer");
 	info.img.img = mlx_new_image(info.mlx, 1920, 1080);

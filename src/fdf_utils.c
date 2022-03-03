@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:50:39 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 15:57:15 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:01:53 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,16 @@ void	alloctab_point(t_info *info)
 	tmp = ft_split(info->map->line, ' ');
 	info->nbline = size_of_line(tmp);
 	info->nbcol = size_of_col(info);
-	info->tab_point = malloc(sizeof(t_point *) * info->nbcol);
+	info->tab_point = malloc(sizeof(t_point *) * info->nbcol + 1);
+	if(!info->tab_point)
+		free_fun(info);
 	while (i < info->nbcol)
 	{
 		info->tab_point[i] = malloc(sizeof(t_point) * info->nbline);
+		if(!info->tab_point[i])
+			free_fun(info);
 		i++;
 	}
+	info->freetab = i;
 	free_map(tmp);
 }

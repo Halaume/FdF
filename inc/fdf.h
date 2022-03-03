@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 16:31:56 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:03:10 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_info {
 	int					projection;
 	int					color;
 	int					colorbool;
+	int					freetab;
 	unsigned long long	nb_point;
 	double				angle_x;
 	double				angle_y;
@@ -89,7 +90,7 @@ void		fill_map(t_map_list **map, char **argv);
 int			map_size(t_info info);
 void		retrace_map(t_info *info);
 
-//				GNL
+//				GNL && PARSING
 
 char		*get_next_line(int fd);
 int			ft_strlen(char *str);
@@ -100,6 +101,7 @@ char		*get_line(int fd, char *line);
 char		*del_start(char *line);
 char		*get_start(char *line);
 char		*get_next_line(int fd);
+char		*get_no_color(char	*splitted);
 
 //				String Manip
 

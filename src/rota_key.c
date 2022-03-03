@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 12:07:00 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 16:31:51 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:19:39 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	projection(t_info *info)
 	}
 	retrace_map(info);
 }
+
 void	rota_up(t_info *info)
 {
 	info->angle_x += 0.1;

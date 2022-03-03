@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:59:19 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 12:20:37 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:31:06 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,12 @@ t_point	rota(t_info *info, t_point point)
 {
 	t_point	res;
 
-	res.x = (info->spacing * (cos(info->angle_z) * point.x - sin(info->angle_z) * point.y));
-	res.y = (info->spacing * (sin(info->angle_z) * point.x + cos(info->angle_z) * point.y));
-	res.y = (res.y * cos(info->angle_x)) - ((point.z * info->spacing / info->epaisseur) * sin(info->angle_x));
+	res.x = (info->spacing * (cos(info->angle_z) * point.x - \
+				sin(info->angle_z) * point.y));
+	res.y = (info->spacing * (sin(info->angle_z) * point.x + \
+				cos(info->angle_z) * point.y));
+	res.y = (res.y * cos(info->angle_x)) - ((point.z * \
+				info->spacing / info->epaisseur) * sin(info->angle_x));
 	res.z = point.z;
 	res.y += info->yval;
 	res.x += info->xval;

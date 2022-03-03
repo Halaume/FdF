@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:16:54 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 16:32:36 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:49:17 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_info(t_info *info)
 	info->yval = 0;
 	info->colorbool = 0;
 	info->projection = 0;
+	info->freetab = 0;
 }
 
 void	get_spacing(t_info *info)
@@ -56,7 +57,6 @@ void	get_mid(t_info *info)
 	info->mid.z = info->tab_point[i][j].z;
 	info->mid.x = info->tab_point[i][j].x;
 	info->mid.y = info->tab_point[i][j].y;
-	printf("\nx = %d y = %d z = %d\n", info->mid.x, info->mid.y, info->mid.z);
 }
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -65,8 +65,9 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	if (x < WIDTH && y < HEIGHT && x > 0 && y > 0)
 	{
-		dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-		*(unsigned int*)dst = color;
+		dst = data->addr + \
+			(y * data->line_length + x * (data->bits_per_pixel / 8));
+		*(unsigned int *)dst = color;
 	}
 }
 
