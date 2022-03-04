@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:54:54 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 19:15:04 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:28:49 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void free_lst_map(t_info *info)
 		{
 			tmp = info->map;
 			info->map = info->map->next;
-			free(tmp);
 			free(tmp->line);
+			free(tmp);
 		}
 	}
 }
