@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:54:54 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/04 17:28:49 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/04 17:34:05 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	free_list(t_info *info)
 	free(info->tab_point);
 }
 
-void free_lst_map(t_info *info)
+void	free_lst_map(t_info *info)
 {
 	t_map_list	*tmp;
 
-	if(info->map)
+	if (info->map)
 	{
 		while (info->map)
 		{

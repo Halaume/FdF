@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 19:03:10 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/04 18:10:01 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ typedef struct s_map_list {
 }	t_map_list;
 
 typedef struct s_point {
-	int	x;
-	int	y;
-	int	z;
+	double	x;
+	double	y;
+	double	z;
 	int	color;
 }	t_point;
 
@@ -102,6 +102,7 @@ char		*del_start(char *line);
 char		*get_start(char *line);
 char		*get_next_line(int fd);
 char		*get_no_color(char	*splitted);
+void		get_tab_point(t_info *info);
 
 //				String Manip
 
