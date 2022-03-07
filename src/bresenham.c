@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 10:56:11 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/06 14:26:59 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/07 12:27:55 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	norme_moi(t_info *info, t_point p1, t_point p2, int choose)
 void	bricenham(t_info *info, t_point point1, t_point point2)
 {
 	(void)info;
-	if ((info->colorbool == 1 && \
+	if ((info->colorbool > 0 && \
 				(point1.z > info->mid.z || point2.z > info->mid.z)))
 		info->color = 0x00FF0F0F;
-	else if (info->colorbool == 1 && (point1.z < info->mid.z || \
+	else if (info->colorbool > 0 && (point1.z < info->mid.z || \
 				point2.z < info->mid.z))
 		info->color = 0x00FF0FF0;
 	else

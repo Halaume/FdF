@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 18:04:11 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/07 11:07:53 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/07 12:27:37 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	print_point2(t_info *info, int x, t_point point)
 	y = 0;
 	while (y < info->nbcol)
 	{
-		if ((info->colorbool == 1 && \
+		if ((info->colorbool > 0 && \
 					info->tab_point[x][y].z > info->mid.z))
 			info->color = 0x00FF0F0F;
-		else if (info->colorbool == 1 && \
+		else if (info->colorbool > 0 && \
 				info->tab_point[x][y].z < info->mid.z)
 			info->color = 0x00FF0FF0;
 		else
@@ -72,7 +72,7 @@ int	get_tab_point2(t_info *info, t_map_list *tmp_map, int j)
 		info->tab_point[j][i].x = i - info->nbline / 2;
 		info->tab_point[j][i].y = j - info->nbcol / 2;
 		info->tab_point[j][i].z = ft_atoi(nocolorcode);
-//		info->save_z += ft_atoi(nocolorcode);
+		info->save_z += ft_atoi(nocolorcode);
 		free(nocolorcode);
 		i++;
 	}
@@ -99,6 +99,6 @@ void	get_tab_point(t_info *info)
 	info->save = info->tab_point;
 	info->nbline = j;
 	info->nbcol = i;
-//	info->save_z = info->save_z / (i + j);
+	info->save_z = info->save_z / (i * j);
 	get_mid(info);
 }
