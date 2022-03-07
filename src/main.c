@@ -6,30 +6,11 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:06:13 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/04 18:09:49 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/06 15:06:12 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
-
-t_point	dist(t_point mid, t_point point)
-{
-	int		dist;
-	t_point	final_point;
-
-	dist = sqrt((pow((mid.x - point.x), 2)) + (pow((mid.y - point.y), 2)) + \
-			(pow((mid.z - point.z), 2)));
-	if (point.x >= 0)
-		final_point.x = point.x - dist;
-	if (point.x <= 0)
-		final_point.x = point.x + dist;
-	if (point.y <= 0)
-		final_point.y = point.y + dist;
-	if (point.y >= 0)
-		final_point.y = point.y - dist;
-	final_point.z = point.z;
-	return (final_point);
-}
 
 char	*get_no_color(char	*splitted)
 {
@@ -64,6 +45,8 @@ int	main(int argc, char **argv)
 		return (1);
 	init_info(&info);
 	fill_map(&info.map, argv);
+	if (info.map == NULL)
+		return (1);
 	info.mlx = mlx_init();
 	info.window = mlx_new_window(info.mlx, 1920, 1080, "Fil De Fer");
 	info.img.img = mlx_new_image(info.mlx, 1920, 1080);

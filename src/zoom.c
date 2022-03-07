@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 12:02:46 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 16:17:40 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/07 10:56:03 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,23 @@ void	low(t_info *info)
 
 void	color(t_info *info)
 {
+	double	tmp;
+
 	if (info->colorbool == 0)
 		info->colorbool = 1;
+	else if (info->colorbool == 1)
+	{
+		info->colorbool = 2;
+		tmp = info->mid.z;
+		info->mid.z = info->save_z;
+		info->save_z = tmp;
+	}
 	else
+	{
 		info->colorbool = 0;
+		tmp = info->mid.z;
+		info->mid.z = info->save_z;
+		info->save_z = tmp;
+	}
 	retrace_map(info);
 }

@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:16:54 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 18:49:17 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/07 10:56:30 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_info(t_info *info)
 	info->colorbool = 0;
 	info->projection = 0;
 	info->freetab = 0;
+	info->save_z = 0;
 }
 
 void	get_spacing(t_info *info)

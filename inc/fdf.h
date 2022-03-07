@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/04 18:10:01 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/07 10:52:54 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_info {
 	double				angle_x;
 	double				angle_y;
 	double				angle_z;
+	double				save_z;
 	double				spacing;
 	double				zoom;
 	t_point				**tab_point;
