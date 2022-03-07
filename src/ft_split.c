@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:27:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/03 19:09:58 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:48:06 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ static char	**free_tab(char **tab)
 	return (NULL);
 }
 
-static int	nb_word(char const *s, char c)
+static int	nb_word(char *str, char c)
 {
-	int	count;
-	int	i;
+	int		count;
+	int		i;
+	char	*s;
 
-	if (!s[0])
+	if (!str[0])
 		return (0);
+	s = ft_strtrim(str, "\n");
 	i = 0;
 	count = 0;
 	while (s[i])
@@ -40,12 +42,11 @@ static int	nb_word(char const *s, char c)
 		while (s[i] == c && s[i])
 			i++;
 		if (s[i] != c && s[i])
-		{
-			while (s[i] != c && s[i])
-				i++;
 			count++;
-		}
+		while (s[i] != c && s[i])
+			i++;
 	}
+	free(s);
 	return (count);
 }
 

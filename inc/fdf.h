@@ -6,7 +6,7 @@
 /*   By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:07:03 by ghanquer          #+#    #+#             */
-/*   Updated: 2022/03/07 10:52:54 by ghanquer         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:47:47 by ghanquer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void		get_tab_point(t_info *info);
 char		**ft_split(char *s, char c);
 char		*ft_strdup(char *s);
 int			ft_atoi(char *str);
+char		*ft_strtrim(char *s1, char *set);
 
 //				Chain List utils
 

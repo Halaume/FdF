@@ -6,7 +6,7 @@
 #    By: ghanquer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 14:08:14 by ghanquer          #+#    #+#              #
-#    Updated: 2022/03/04 18:03:59 by ghanquer         ###   ########.fr        #
+#    Updated: 2022/03/07 19:48:35 by ghanquer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRC_FT = 	main \
 			zoom \
 			rota_key \
 			put_point \
-			get_next_line_utils
+			get_next_line_utils \
+			str_trim
 
 all: $(NAME)
 
