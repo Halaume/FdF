@@ -61,7 +61,7 @@ int	get_tab_point2(t_info *info, t_map_list *tmp_map, int j)
 
 	i = 0;
 	splitmap = ft_split(tmp_map->line, ' ');
-	while (splitmap[i])
+	while (i < info->nbline)
 	{
 		nocolorcode = get_no_color(splitmap[i]);
 		if (nocolorcode == NULL)
