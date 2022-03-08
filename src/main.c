@@ -18,7 +18,7 @@ char	*get_no_color(char	*splitted)
 	char	*ret;
 
 	if (!splitted)
-		return (NULL);
+		return ("\0");
 	i = 0;
 	while (splitted[i] && splitted[i] != ' ' && splitted[i] != ',' && \
 			splitted[i] != '\0' && splitted[i] != '\n')
