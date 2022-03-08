@@ -73,7 +73,8 @@ int	get_tab_point2(t_info *info, t_map_list *tmp_map, int j)
 		info->tab_point[j][i].y = j - info->nbcol / 2;
 		info->tab_point[j][i].z = ft_atoi(nocolorcode);
 		info->save_z += ft_atoi(nocolorcode);
-		free(nocolorcode);
+		if (nocolorcoe[0] != '\0')
+			free(nocolorcode);
 		i++;
 	}
 	free_map(splitmap);
